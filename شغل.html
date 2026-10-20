@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لعبة اختراق الـ 100 لفل الملوكية 🎮</title>
+    
+    <!-- 🎨 قسم التنسيق والديكور البصري وإضاءة النيون (CSS) -->
+    <style>
+        body {
+            background-color: #050811; /* أسود ملكي داكن جداً لحماية العين */
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00ffcc; /* لون نيون تركواز مشع */
+            text-shadow: 0 0 20px #00ffcc; /* تأثير توهج الحروف */
+        }
+
+        /* صندوق اللعبة الرئيسي المتمركز */
+        .game-container {
+            background-color: #0f172a;
+            border: 2px solid #00ffcc;
+            border-radius: 15px; /* حواف دائرية ناعمة مودرن */
+            width: 80%;
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.2);
+        }
+
+        .level-display {
+            font-size: 2.5rem;
+            color: #38bdf8; /* لون أزرق سماوي مضيء للرقم */
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 0 0 15px #38bdf8;
+        }
+
+        /* زر الهجوم التفاعلي الانسيابي */
+        .btn-attack {
+            background: linear-gradient(135deg, #00ffcc, #0099ff); /* تدرج لوني فخم */
+            color: #050811;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px; /* جعل الزر دائرياً بالكامل */
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+            transition: all 0.3s ease; /* سر النعومة السلسة عند التفاعل */
+        }
+
+        /* تأثير الجيمنج عند حوم الماوس فوق الزر (Hover) */
+        .btn-attack:hover {
+            transform: scale(1.08); /* تكبير الزر ديناميكياً */
+            box-shadow: 0 0 25px #00ffcc; /* مضاعفة التوهج المضيء */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🧱 هنا جدران ومبنى اللعبة (HTML) -->
+    <h1>نظام محاكاة الاختراق العالمي 🔒</h1>
+    
+    <div class="game-container">
+        <p>اضغط على زر التسلل لرفع مستوى الهجوم واختراق جدار الحماية البنكي:</p>
+        
+        <!-- صندوق عرض اللفل الذي سيتحكم به العقل الذكي -->
+        <div class="level-display">LEVEL: <span id="lvlNumber">1</span></div>
+        
+        <!-- الزر المربوط بالحدث الاستجابي بالجافا سكريبت -->
+        <button class="btn-attack" onclick="advanceLevel()">بث هجوم سيبراني نفاث 💥</button>
+    </div>
+
+    <!-- 🧠 هنا العقل الذكي والمحرك (JavaScript) -->
+    <script>
+        // 1. حجز صندوق في الذاكرة لحفظ اللفل الحالي ويبدأ من 1
+        let currentLevel = 1;
+
+        function advanceLevel() {
+            // 2. فحص شرط الفوز: لو وصل اللاعب للفل 100
+            if (currentLevel >= 100) {
+                alert("🏆 انتصار أسطوري للبرنس! لقد قمت باختراق السيرفر الرئيسي بالكامل وتأمين البيانات!");
+                currentLevel = 1; // إعادة اللعبة من البداية بعد الفوز
+            } else {
+                // 3. زيادة اللفل بمقدار 1 في الذاكرة عند كل ضغطة ماوس
+                currentLevel = currentLevel + 1;
+            }
+
+            // 4. يد الجافا سكريبت السحرية التي تلتقط العنصر وتبدله على الشاشة فوراً
+            document.getElementById("lvlNumber").innerText = currentLevel;
+        }
+    </script>
+
+</body>
+</html>
